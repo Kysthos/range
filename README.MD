@@ -93,7 +93,7 @@ range(100).sum() // 4950
 
 ```
 ## r.generator(cb, [...args])
-* `cb` `{function}` callback function taking three parameters: `rangeElement {Number}`, `index {Number}`, `currentRange {Range}`. If any additional arguments were passed to the generator function, there will be passed to the callback as well.
+* `cb` `{Function}` callback function taking three parameters: `rangeElement {Number}`, `index {Number}`, `currentRange {Range}`. If any additional arguments were passed to the generator function, they will be passed to the callback as well.
 * `...args` `{any}` any optional arguments that will be passed to each invocation of the callback.
 
 Returns a generator function which will yield return values of the passed callback.
