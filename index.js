@@ -186,6 +186,11 @@ class Range {
     return new RangeStream(opts, this);
   }
 
+  * enumerate(indexStart = 0) {
+    for (const el of this)
+      yield([indexStart++, el]);
+  }
+
   // TODO
   slice() {}
 }

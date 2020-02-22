@@ -49,6 +49,23 @@ Returns index of specified number. If not in range, returns `-1`.
 range(5, 25, 5).indexOf(12) // -1
 range(5, 25, 5).indexOf(20) // 3
 ```
+## r.enumerate([indexStartingValue])
+Generator function yielding an array of `[index, element]`. Optionally, starting value of the index can be specified.
+```js
+for (const [i, num] of range(4, -4, -2).enumerate())
+  console.log(`index ${i}: ${num}`)
+// index 0: 4
+// index 1: 2
+// index 2: 0
+// index 3: -2
+
+for (const [i, num] of range(4, -4, -2).enumerate(1))
+  console.log(`index ${i}: ${num}`)
+// index 1: 4
+// index 2: 2
+// index 3: 0
+// index 4: -2
+```
 ## r.reverse()
 ```js
 
