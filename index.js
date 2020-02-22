@@ -168,15 +168,19 @@ class Range {
     class RangeStream extends Readable {
       constructor(opts, range) {
         super(opts);
-        this.generator = range[Symbol.iterator]();
+        this.iterator = range[Symbol.iterator]();
       }
       _read() {
         const {
           done = null, value = null
-        } = this.generator.next();
+        } = this.iterator.next();
         if (done)
           return this.push(null)
-        this.push(String(value));
+        if (this._readableState.objectMode)
+          return this.push({
+            value
+          });
+        return this.push(String(value));
       }
     }
     return new RangeStream(opts, this);
